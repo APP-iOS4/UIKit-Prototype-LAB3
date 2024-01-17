@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let recommendViewController = ViewController()
+        let recommendViewController = RecommendViewController()
         recommendViewController.tabBarItem = UITabBarItem(title: "추천", image: UIImage(systemName: "hand.thumbsup"), tag: 0)
         
         let rankingViewController = ViewController()

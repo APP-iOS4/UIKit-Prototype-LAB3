@@ -13,5 +13,10 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
 
         self.view.backgroundColor = .systemBackground
+        buildInterface()
+    }
+    
+    func buildInterface() {
+        
     }
 }
