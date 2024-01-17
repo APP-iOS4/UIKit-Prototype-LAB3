@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let recommendViewController = RecommendViewController()
         recommendViewController.tabBarItem = UITabBarItem(title: "추천", image: UIImage(systemName: "hand.thumbsup"), tag: 0)
         
-        let rankingViewController = ViewController()
+        let rankingViewController = RankingViewController()
         rankingViewController.tabBarItem = UITabBarItem(title: "랭킹", image: UIImage(systemName: "trophy"), tag: 1)
         
         let wishListViewController = ViewController()
