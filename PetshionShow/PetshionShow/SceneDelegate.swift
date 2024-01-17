@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let rankingViewController = RankingViewController()
         rankingViewController.tabBarItem = UITabBarItem(title: "랭킹", image: UIImage(systemName: "trophy"), tag: 1)
         
-        let wishListViewController = ViewController()
+        let wishListViewController = WishListViewController()
         wishListViewController.tabBarItem = UITabBarItem(title: "장바구니", image: UIImage(systemName: "bag"), tag: 2)
         
         
