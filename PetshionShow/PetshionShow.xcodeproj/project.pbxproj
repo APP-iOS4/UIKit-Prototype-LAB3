@@ -17,6 +17,7 @@
 		A8A22C682B575F7900809D03 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A22C672B575F7900809D03 /* BaseViewController.swift */; };
 		A8A22C6C2B579B2900809D03 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A22C6B2B579B2900809D03 /* RecommendViewController.swift */; };
 		CB4F85F92B57BBE90065FD60 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4F85F82B57BBE90065FD60 /* WishListViewController.swift */; };
+		B0AD483F2B57A88A009C8D97 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AD483E2B57A88A009C8D97 /* RankingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		A8A22C672B575F7900809D03 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A8A22C6B2B579B2900809D03 /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		CB4F85F82B57BBE90065FD60 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
+		B0AD483E2B57A88A009C8D97 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				A8A22C672B575F7900809D03 /* BaseViewController.swift */,
 				A8A22C6B2B579B2900809D03 /* RecommendViewController.swift */,
 				CB4F85F82B57BBE90065FD60 /* WishListViewController.swift */,
+				B0AD483E2B57A88A009C8D97 /* RankingViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				CB4F85F92B57BBE90065FD60 /* WishListViewController.swift in Sources */,
 				A8A22C522B5754E900809D03 /* ViewController.swift in Sources */,
 				A8A22C6C2B579B2900809D03 /* RecommendViewController.swift in Sources */,
+				B0AD483F2B57A88A009C8D97 /* RankingViewController.swift in Sources */,
 				A8A22C632B5756D000809D03 /* Product.swift in Sources */,
 				A8A22C4E2B5754E900809D03 /* AppDelegate.swift in Sources */,
 				A8A22C502B5754E900809D03 /* SceneDelegate.swift in Sources */,
