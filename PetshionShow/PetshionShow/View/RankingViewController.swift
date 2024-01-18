@@ -13,17 +13,6 @@ class RankingViewController: BaseViewController {
     lazy var resizedImage2 = UIImage(named: "acContents")!.resized(to: CGSize(width: view.frame.width, height: 1000))
     lazy var resizedImage3 = UIImage(named: "yongpumContents")!.resized(to: CGSize(width: view.frame.width, height: 1000))
     
-    // 메인 레이블
-    let labelMain: UILabel = {
-        let label = UILabel()
-        label.text = "랭 킹"
-        // label.backgroundColor = .systemGray5
-        label.textAlignment = .center
-        label.font = .boldSystemFont(ofSize: 20)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     // 세그먼트
     let segment: UISegmentedControl = {
         let segment = UISegmentedControl()
@@ -73,7 +62,7 @@ class RankingViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = "랭킹"
         
     }
     
@@ -84,7 +73,6 @@ class RankingViewController: BaseViewController {
     
     
     func buildAddView() {
-        view.addSubview(labelMain)
         view.addSubview(segment)
         view.addSubview(imageView)
         view.addSubview(scrollView)
@@ -95,18 +83,11 @@ class RankingViewController: BaseViewController {
     
     func buildAutoLayout() {
         
-        // 메인 레이블 레이아웃
-        NSLayoutConstraint.activate([
-            labelMain.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
-            labelMain.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
-            labelMain.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            labelMain.heightAnchor.constraint(equalToConstant: 40)
-        ])
     
         // 세그먼트 레이아웃
         NSLayoutConstraint.activate([
             segment.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
-            segment.topAnchor.constraint(equalTo: labelMain.bottomAnchor, constant: 4),
+            segment.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 4),
             segment.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
         
             segment.heightAnchor.constraint(equalToConstant: 50)
