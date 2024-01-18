@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		72BC9D502B58A3FA0077EEA3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BC9D4F2B58A3FA0077EEA3 /* DetailViewController.swift */; };
+		A83E407A2B590A2200867AD9 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E40792B590A2200867AD9 /* ProductCollectionViewCell.swift */; };
 		A8A22C4E2B5754E900809D03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A22C4D2B5754E900809D03 /* AppDelegate.swift */; };
 		A8A22C502B5754E900809D03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A22C4F2B5754E900809D03 /* SceneDelegate.swift */; };
 		A8A22C522B5754E900809D03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A22C512B5754E900809D03 /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		72BC9D4F2B58A3FA0077EEA3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A83E40792B590A2200867AD9 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		A8A22C4A2B5754E900809D03 /* PetshionShow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetshionShow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8A22C4D2B5754E900809D03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8A22C4F2B5754E900809D03 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				CB4F85F82B57BBE90065FD60 /* WishListViewController.swift */,
 				B0AD483E2B57A88A009C8D97 /* RankingViewController.swift */,
 				72BC9D4F2B58A3FA0077EEA3 /* DetailViewController.swift */,
+				A83E40792B590A2200867AD9 /* ProductCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			files = (
 				72BC9D502B58A3FA0077EEA3 /* DetailViewController.swift in Sources */,
 				A8A22C682B575F7900809D03 /* BaseViewController.swift in Sources */,
+				A83E407A2B590A2200867AD9 /* ProductCollectionViewCell.swift in Sources */,
 				CB4F85F92B57BBE90065FD60 /* WishListViewController.swift in Sources */,
 				A8A22C522B5754E900809D03 /* ViewController.swift in Sources */,
 				A8A22C6C2B579B2900809D03 /* RecommendViewController.swift in Sources */,

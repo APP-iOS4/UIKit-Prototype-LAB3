@@ -139,7 +139,7 @@ class RankingViewController: BaseViewController {
     }
     
     @objc func pressProduct() {
-        let nextViewController = DetailViewController()
-        self.navigationController?.pushViewController(nextViewController, animated: true)
+//        let nextViewController = DetailViewController()
+//        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 }
