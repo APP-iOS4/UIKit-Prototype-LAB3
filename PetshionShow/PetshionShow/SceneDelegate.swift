@@ -16,13 +16,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let recommendViewController = RecommendViewController()
+        let recommendViewController = UINavigationController(rootViewController: RecommendViewController())
         recommendViewController.tabBarItem = UITabBarItem(title: "추천", image: UIImage(systemName: "hand.thumbsup"), tag: 0)
         
-        let rankingViewController = RankingViewController()
+        let rankingViewController = UINavigationController(rootViewController: RankingViewController())
         rankingViewController.tabBarItem = UITabBarItem(title: "랭킹", image: UIImage(systemName: "trophy"), tag: 1)
         
-        let wishListViewController = WishListViewController()
+        let wishListViewController =  UINavigationController(rootViewController: WishListViewController())
         wishListViewController.tabBarItem = UITabBarItem(title: "장바구니", image: UIImage(systemName: "bag"), tag: 2)
         
         

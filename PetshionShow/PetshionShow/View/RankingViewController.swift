@@ -63,6 +63,14 @@ class RankingViewController: BaseViewController {
         return imageView
     }()
     
+    // 버튼 뷰
+    lazy var productButton: UIButton = {
+        let button = UIButton()
+        button.frame = CGRect(x: 0, y: 0, width:view.frame.width, height: 1000)
+        button.addTarget(self, action: #selector(pressProduct), for: .touchUpInside)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -82,6 +90,7 @@ class RankingViewController: BaseViewController {
         view.addSubview(scrollView)
         
         scrollView.addSubview(imageViewContents)
+        scrollView.addSubview(productButton)
     }
     
     func buildAutoLayout() {
@@ -146,5 +155,10 @@ class RankingViewController: BaseViewController {
             imageView.image = UIImage(named: "ot")
             imageViewContents.image = resizedImage1
         }
+    }
+    
+    @objc func pressProduct() {
+        let nextViewController = DetailViewController()
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 }
