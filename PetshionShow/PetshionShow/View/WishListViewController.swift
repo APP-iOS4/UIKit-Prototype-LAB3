@@ -39,6 +39,13 @@ class WishListViewController: BaseViewController {
         return imageView
     }()
     
+    lazy var productButton: UIButton = {
+        let button = UIButton()
+        button.frame = CGRect(x: 0, y: 0, width:view.frame.width, height: 500)
+        button.addTarget(self, action: #selector(pressProduct), for: .touchUpInside)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,6 +64,8 @@ class WishListViewController: BaseViewController {
         view.addSubview(labelMain)
         view.addSubview(scrollView)
         scrollView.addSubview(imageView)
+        scrollView.addSubview(productButton)
+        
     }
     
     func buildAutoLayout() {
@@ -76,6 +85,14 @@ class WishListViewController: BaseViewController {
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
         ])
         
+        // 버튼 뷰
+       
+        
+    }
+    
+    @objc func pressProduct() {
+        let nextViewController = DetailViewController()
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     
 }

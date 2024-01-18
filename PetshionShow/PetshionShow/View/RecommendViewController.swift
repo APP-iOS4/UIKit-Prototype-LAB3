@@ -54,6 +54,13 @@ class RecommendViewController: BaseViewController {
         recommandMain.contentMode = .scaleAspectFit
         wholeStackView.addArrangedSubview(recommandMain)
         
+        let mainButton = UIButton()
+        mainButton.backgroundColor = .clear
+        
+//        button.alpha = 0.35
+        mainButton.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.width)
+        mainButton.addTarget(self, action: #selector(pressProduct), for: .touchUpInside)
+        wholeStackView.addSubview(mainButton)
         
         // MARK: - 오늘의 특가
         let specialLabel: UILabel = {
@@ -80,7 +87,7 @@ class RecommendViewController: BaseViewController {
         button.backgroundColor = .clear
 //        button.alpha = 0.35
         button.frame = CGRect(x: 0, y: 0, width: contentWidth, height: contentHeight)
-        button.addTarget(self, action: #selector(sayHello), for: .touchUpInside)
+        button.addTarget(self, action: #selector(pressProduct), for: .touchUpInside)
         miniScrollView.addSubview(button)
         
         miniScrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -118,7 +125,7 @@ class RecommendViewController: BaseViewController {
         winterButton.backgroundColor = .clear
 //        button.alpha = 0.35
         winterButton.frame = CGRect(x: 0, y: 0, width: contentWidth, height: contentHeight * 2)
-        winterButton.addTarget(self, action: #selector(sayHello), for: .touchUpInside)
+        winterButton.addTarget(self, action: #selector(pressProduct), for: .touchUpInside)
         winterMiniScrollView.addSubview(winterButton)
         
         winterMiniScrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -156,7 +163,7 @@ class RecommendViewController: BaseViewController {
         catButton.backgroundColor = .clear
 //        button.alpha = 0.35
         catButton.frame = CGRect(x: 0, y: 0, width: contentWidth, height: contentHeight * 2)
-        catButton.addTarget(self, action: #selector(sayHello), for: .touchUpInside)
+        catButton.addTarget(self, action: #selector(pressProduct), for: .touchUpInside)
         catMiniScrollView.addSubview(catButton)
         
         catMiniScrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -170,8 +177,9 @@ class RecommendViewController: BaseViewController {
         
     }
     
-    @objc func sayHello() {
-        print("tapped Image")
+    @objc func pressProduct() {
+        let nextViewController = DetailViewController()
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 
 }
