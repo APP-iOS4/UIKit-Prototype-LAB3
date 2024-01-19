@@ -53,11 +53,11 @@
 
 |          | 이름   | GitHub      | 
 | -------- | ----- | ----------- |
-| <img src="https://avatars.githubusercontent.com/u/141600830?v=4" alt="drawing" width="100"/> | 강건 | [GitHub 프로필](https://github.com/kangsworkspace)   | 
-| <img src="https://avatars.githubusercontent.com/u/94823065?v=4" alt="drawing" width="100"/> | 이시형 | [GitHub 프로필](https://github.com/poetic-form) | 
-| <img src="https://avatars.githubusercontent.com/u/37467592?v=4" alt="drawing" width="100"/> | 최정인 | [GitHub 프로필](https://github.com/choijungp)   |
-| <img src="https://avatars.githubusercontent.com/u/80569323?v=4" alt="drawing" width="100"/> | 최주리 | [GitHub 프로필](https://github.com/juri123123)  |
-| <img src="https://avatars.githubusercontent.com/u/104252650?v=4" alt="drawing" width="100"/> | 한국선 | [GitHub 프로필](https://github.com/banhada)   | 
+| <img src="https://avatars.githubusercontent.com/u/141600830?v=4" alt="drawing" width="100"/> | 강건 | [@kangsworkspace](https://github.com/kangsworkspace)   | 
+| <img src="https://avatars.githubusercontent.com/u/94823065?v=4" alt="drawing" width="100"/> | 이시형 | [@poetic-form](https://github.com/poetic-form) | 
+| <img src="https://avatars.githubusercontent.com/u/37467592?v=4" alt="drawing" width="100"/> | 최정인 | [@choijungp](https://github.com/choijungp)   |
+| <img src="https://avatars.githubusercontent.com/u/80569323?v=4" alt="drawing" width="100"/> | 최주리 | [@juri123123](https://github.com/juri123123)  |
+| <img src="https://avatars.githubusercontent.com/u/104252650?v=4" alt="drawing" width="100"/> | 한국선 | [@banhada](https://github.com/banhada)   | 
 
 ## 🐾 Reference
 [사용 이미지 1](https://www.musinsa.com/app/goods/1973921)    
