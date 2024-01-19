@@ -96,8 +96,6 @@ class DetailViewController: BaseViewController {
     override func buildInterface() {
         super.buildInterface()
         
-        
-      
         purchaseStackView.addArrangedSubview(wishListButton)
         purchaseStackView.addArrangedSubview(purchaseButton)
         

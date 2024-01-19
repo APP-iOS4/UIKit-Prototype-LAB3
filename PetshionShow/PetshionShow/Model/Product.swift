@@ -34,4 +34,10 @@ let products: [Product] = [
     Product(image: UIImage(named: "petshion4")!),
     Product(image: UIImage(named: "petshion5")!),
     Product(image: UIImage(named: "petshion6")!),
+    Product(image: UIImage(named: "petshion1")!),
+    Product(image: UIImage(named: "petshion2")!),
+    Product(image: UIImage(named: "petshion3")!),
+    Product(image: UIImage(named: "petshion4")!),
+    Product(image: UIImage(named: "petshion5")!),
+    Product(image: UIImage(named: "petshion6")!),
 ]
