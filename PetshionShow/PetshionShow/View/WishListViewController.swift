@@ -35,23 +35,6 @@ class WishListViewController: BaseViewController {
         collectionView.delegate = self
     }
     
-    
-    // 이미지 뷰
-    lazy var imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.backgroundColor = .systemGray5
-        imageView.image = UIImage(named: "wishList")!.resized(to: CGSize(width: view.frame.width, height: 500))
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    
-    lazy var productButton: UIButton = {
-        let button = UIButton()
-        button.frame = CGRect(x: 0, y: 0, width:view.frame.width, height: 500)
-        button.addTarget(self, action: #selector(pressProduct), for: .touchUpInside)
-        return button
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "장바구니"
@@ -64,7 +47,6 @@ class WishListViewController: BaseViewController {
         buildAddView()
         buildAutoLayout()
         scrollView.contentSize = CGSize(width: view.frame.width, height: 700)
-                
     }
     
     func buildAddView() {
@@ -72,8 +54,6 @@ class WishListViewController: BaseViewController {
     }
     
     func buildAutoLayout() {
- 
-       
         // 컬렉션 뷰 레이아웃
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
@@ -81,19 +61,7 @@ class WishListViewController: BaseViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
         ])
-        
-        
-       
-        
     }
-    
-    @objc func pressProduct() {
-        let nextViewController = DetailViewController()
-        self.navigationController?.pushViewController(nextViewController, animated: true)
-    }
-    
-    
-    
 }
 
 
@@ -121,7 +89,8 @@ extension WishListViewController: UICollectionViewDelegateFlowLayout {
     
     // 셀이 눌렸을 때
     func collectionView( _ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let nextViewController = DetailViewController()
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 }
 
@@ -132,12 +101,10 @@ extension WishListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionViewCell", for: indexPath) as! ProductCollectionViewCell
-        cell.backgroundColor = .brown
         
         cell.productImage.image = products[indexPath.row].image
-        cell.nameLabel.text = products[indexPath.row].name
-        cell.priceLabel.text = "\(products[indexPath.row].price)"
-        
+        cell.nameLabel.text = "  \(products[indexPath.row].name)"
+        cell.priceLabel.text = "  \(products[indexPath.row].price)원"
         
         return cell
     }

@@ -11,14 +11,14 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     let priceLabel: UILabel = {
         let label = UILabel()
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -27,7 +27,6 @@ class ProductCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-//        imageView.backgroundColor = .cyan
         return imageView
     }()
     
@@ -42,11 +41,12 @@ class ProductCollectionViewCell: UICollectionViewCell {
             productImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             productImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
             productImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            productImage.heightAnchor.constraint(equalToConstant: contentView.frame.width)
         ])
         
         NSLayoutConstraint.activate([
-            nameLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 0),
-            nameLabel.topAnchor.constraint(equalTo: productImage.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            nameLabel.topAnchor.constraint(equalTo: productImage.safeAreaLayoutGuide.bottomAnchor, constant: 10),
             nameLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: 0),
         ])
         
