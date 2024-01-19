@@ -66,6 +66,8 @@
 [사용 이미지 4](https://www.musinsa.com/app/goods/3719882?loc=goods_rank)    
 [사용 이미지 5](https://www.musinsa.com/app/goods/3767715?loc=goods_rank)    
 [사용 이미지 6](https://www.musinsa.com/app/goods/2252149)    
+이미지 문제 시, 삭제하도록 하겠습니다. 
+
 
 ## 🐾 License 
 Copyright 멋쟁이사자처럼. All rights reserved.      
