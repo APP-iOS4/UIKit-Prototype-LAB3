@@ -9,9 +9,11 @@ import UIKit
 
 class RankingViewController: BaseViewController {
     
-    lazy var resizedImage1 = UIImage(named: "otContents")!.resized(to: CGSize(width: view.frame.width, height: 1000))
-    lazy var resizedImage2 = UIImage(named: "acContents")!.resized(to: CGSize(width: view.frame.width, height: 1000))
-    lazy var resizedImage3 = UIImage(named: "yongpumContents")!.resized(to: CGSize(width: view.frame.width, height: 1000))
+    var imageOt = UIImage(named: "otContents")
+    var imageAc = UIImage(named: "acContents")
+    var imageYongpum = UIImage(named: "yongpumContents")
+    
+    var myProducts: [Product] = products
     
     // 세그먼트
     let segment: UISegmentedControl = {
@@ -28,7 +30,6 @@ class RankingViewController: BaseViewController {
     // 스크롤 뷰
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.contentSize = CGSize(width: view.frame.width, height: 1000)
         scrollView.backgroundColor = .systemBackground
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
@@ -38,26 +39,20 @@ class RankingViewController: BaseViewController {
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .systemGray5
-        imageView.image = UIImage(named: "ot")
+        imageView.image = UIImage(named: "otContents")
+        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    // 이미지 컨텐츠 뷰
-    lazy var imageViewContents: UIImageView = {
-        let imageView = UIImageView()
-        imageView.backgroundColor = .systemGray5
-        imageView.image = resizedImage1
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    
-    // 버튼 뷰
-    lazy var productButton: UIButton = {
-        let button = UIButton()
-        button.frame = CGRect(x: 0, y: 0, width:view.frame.width, height: 1000)
-        button.addTarget(self, action: #selector(pressProduct), for: .touchUpInside)
-        return button
+    // 컬렉션뷰
+    let collectionView: UICollectionView = {
+        // 컬렉션 뷰의 레이아웃을 담당하는 객체(필수)
+        let flowlayout = UICollectionViewFlowLayout()
+        flowlayout.scrollDirection = .vertical
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: flowlayout)
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        return cv
     }()
     
     override func viewDidLoad() {
@@ -69,21 +64,18 @@ class RankingViewController: BaseViewController {
     override func buildInterface() {
         buildAddView()
         buildAutoLayout()
+        setCollectionView()
     }
     
     
     func buildAddView() {
         view.addSubview(segment)
-        view.addSubview(imageView)
         view.addSubview(scrollView)
-        
-        scrollView.addSubview(imageViewContents)
-        scrollView.addSubview(productButton)
+        scrollView.addSubview(imageView)
+        view.addSubview(collectionView)
     }
     
     func buildAutoLayout() {
-        
-    
         // 세그먼트 레이아웃
         NSLayoutConstraint.activate([
             segment.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
@@ -93,53 +85,108 @@ class RankingViewController: BaseViewController {
             segment.heightAnchor.constraint(equalToConstant: 50)
         ])
         
-        // 이미지 뷰 레이아웃
-        NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
-            imageView.topAnchor.constraint(equalTo: segment.bottomAnchor, constant: 4),
-            imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
-            
-            imageView.heightAnchor.constraint(equalToConstant: 70)
-        ])
-        
         // 스크롤 뷰 레이아웃
         NSLayoutConstraint.activate([
             scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
-            scrollView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 4),
+            scrollView.topAnchor.constraint(equalTo: segment.bottomAnchor, constant: 4),
             scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
-            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            
+            scrollView.heightAnchor.constraint(equalToConstant: 68.5)
         ])
         
-        // 이미지 콘텐츠 뷰 레이아웃
+        // 이미지 뷰 레이아웃
         NSLayoutConstraint.activate([
-            imageViewContents.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0),
-            imageViewContents.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0),
-            imageViewContents.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0),
-            imageViewContents.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0),
+            imageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0),
+            imageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0),
+            imageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0),
+            imageView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0),
+        ])
+        
+        // 컬렉션 뷰 레이아웃
+        NSLayoutConstraint.activate([
+            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
+            collectionView.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0),
+            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
         ])
     }
+    
+    func setCollectionView() {
+        collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: "ProductCollectionViewCell")
+        collectionView.dataSource = self
+        collectionView.delegate = self
+    }
+    
     
     @objc func segmentChanged(_ segemnt: UISegmentedControl) {
         switch segemnt.selectedSegmentIndex {
         case 0:
-            imageView.image = UIImage(named: "ot")
-            imageViewContents.image = resizedImage1
+            myProducts = products
+            collectionView.reloadData()
             
+            imageView.image = UIImage(named: "otContents")
         case 1:
-            imageView.image = UIImage(named: "ac")
-            imageViewContents.image = resizedImage2
+            for index in 0...products.count - 1 {
+                myProducts[index] = products.randomElement()!
+            }
+            collectionView.reloadData()
             
+            imageView.image = UIImage(named: "acContents")
         case 2:
-            imageView.image = UIImage(named: "yongpum")
-            imageViewContents.image = resizedImage3
+            for index in 0...products.count - 1 {
+                myProducts[index] = products.randomElement()!
+            }
+            collectionView.reloadData()
+            
+            imageView.image = UIImage(named: "yongpumContents")
         default:
-            imageView.image = UIImage(named: "ot")
-            imageViewContents.image = resizedImage1
+            break
         }
     }
+}
+
+extension RankingViewController: UICollectionViewDelegateFlowLayout {
+    // 셀의 크기 정하기
+    func collectionView( _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // 원하는 아이템 크기를 CGSize 형태로 반환
+        // EdgeInset * 2를 빼고 원하는 줄 갯수만큼 나눈다
+        // (collectionView.frame.width - (EdgeInset * 2) - ((줄 개수 - 1) * 원하는 간격)) / 원하는 줄 개수
+        let cellWidth = (collectionView.frame.width - 20 - 20) / 3
+        let cellHeight = cellWidth + 50
+        
+        return CGSize(width: cellWidth, height: cellHeight)
+    }
     
-    @objc func pressProduct() {
-//        let nextViewController = DetailViewController()
-//        self.navigationController?.pushViewController(nextViewController, animated: true)
+    // 셀 사이의 간격
+    func collectionView( _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+   
+    // 셀과 뷰의 간격
+    func collectionView( _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
+    }
+    
+    // 셀이 눌렸을 때
+    func collectionView( _ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let nextViewController = DetailViewController()
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+}
+
+extension RankingViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return products.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionViewCell", for: indexPath) as! ProductCollectionViewCell
+        
+        // cell.productImage.image = products[indexPath.row].image
+        cell.productImage.image = myProducts[indexPath.row].image
+        cell.nameLabel.text = "  \(products[indexPath.row].name)"
+        cell.priceLabel.text = "  \(products[indexPath.row].price)원"
+        
+        return cell
     }
 }

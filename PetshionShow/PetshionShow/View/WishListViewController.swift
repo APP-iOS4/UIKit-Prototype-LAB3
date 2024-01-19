@@ -70,8 +70,8 @@ extension WishListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView( _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // 원하는 아이템 크기를 CGSize 형태로 반환
         // EdgeInset * 2를 빼고 원하는 줄 갯수만큼 나눈다
-        // (collectionView.frame.width - EdgeInset * 2) / 원하는 줄 개수
-        let cellWidth = collectionView.frame.width / 3
+        // (collectionView.frame.width - (EdgeInset * 2) - ((줄 개수 - 1) * 원하는 간격)) / 원하는 줄 개수
+        let cellWidth = (collectionView.frame.width - 20 - 20) / 3
         let cellHeight = cellWidth + 50
         
         return CGSize(width: cellWidth, height: cellHeight)
@@ -84,7 +84,7 @@ extension WishListViewController: UICollectionViewDelegateFlowLayout {
    
     // 셀과 뷰의 간격
     func collectionView( _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
+        return UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
     }
     
     // 셀이 눌렸을 때
@@ -108,7 +108,6 @@ extension WishListViewController: UICollectionViewDataSource {
         
         return cell
     }
-    
 }
 
 
